@@ -12,8 +12,10 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Scripts
+       
+         
         run:
          docker build -t app .
-         docker login -u shreyaasatish -p dckr_pat_rRAsHwUjyCCjMX6s_kpqAfK8KE0
+         docker login --username shreyaasatish --password dckr_pat_nktKLHKujD106TWh6vaoK1a6kyw      
          docker tag app shreyaasatish/virtuproj
          docker push shreyaasatish/virtuproj
