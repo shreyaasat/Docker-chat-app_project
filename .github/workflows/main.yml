@@ -14,6 +14,6 @@ jobs:
       - name: Scripts
         run:
          docker build -t app .
-         docker login -u shreyaasatish -p dckr_pat_CNgIDnjbxjCMhq9c9l2FeYdB8vY
+         docker login -u shreyaasatish -p dckr_pat_rRAsHwUjyCCjMX6s_kpqAfK8KE0
          docker tag app shreyaasatish/virtuproj
          docker push shreyaasatish/virtuproj
