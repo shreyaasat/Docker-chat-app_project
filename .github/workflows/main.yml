@@ -1,21 +1,14 @@
-name: CI
-on:
- push:
-   branches: [ master ]
- pull_request:
-   branches: [ master ]
- workflow_dispatch:
+on: push
 jobs:
-  build:
-   runs-on: ubuntu-latest
-   steps:
-      - uses: actions/checkout@v3
-      
-      - name: Scripts
+  build_container:
+    name: Build container
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout code
+       uses: actions/checkout@v3
+     - name: Login to Docker Hub
+       uses: docker/login-action@v1
+       with:
+         username: ${{ secrets.DOCKER_USERNAME }}
+         password: ${{ secrets.DOCKER_PASSWORD }}
        
-         
-        run:
-         docker build -t app .
-         docker login -u shreyaasatish -p dckr_pat_nktKLHKujD106TWh6vaoK1a6kyw      
-         docker tag app shreyaasatish/virtuproj
-         docker push shreyaasatish/virtuproj
