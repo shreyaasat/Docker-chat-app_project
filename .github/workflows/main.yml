@@ -7,13 +7,13 @@ on:
  workflow_dispatch:
 jobs:
  build:
-   runs-on:ubuntu-latest
- 
+   runs-on: ubuntu-latest
    steps:
-      - uses:actions/hekout@v2
+      - uses: actions/checkout@v2
+      
       - name: Scripts
         run:
-         docker build -t app
+         docker build -t app .
          docker login -u shreyaasatish -p dckr_pat_CNgIDnjbxjCMhq9c9l2FeYdB8vY
          docker tag app shreyaasatish/virtuproj
          docker push shreyaasatish/virtuproj
